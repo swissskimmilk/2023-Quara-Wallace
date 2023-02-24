@@ -55,7 +55,7 @@ public final class Constants {
     public static final int intakeSpeed = 1;
 
     // PID shit 
-    public static final int fArmKP = 40;
+    public static final int fArmKP = 40; // pretty sure these should be low doubles but idk shrug
     public static final int fArmKI = 0; 
     public static final int fArmKD = 5;
     public static final int sArmKP = 40;
@@ -64,4 +64,14 @@ public final class Constants {
     public static final int dTKP = 20;
     public static final int dTKI = 0;
     public static final int dTKD = 20;
+    public static final double pidPeriod = 20;
+
+    // FF thing that might get deleted later
+    public static final double dTKS = 5;
+    public static final double dTKV = 5;
+    public static final double dTKA = 0;
+
+
+    // Ronan things that Aidan will have to sort later if he wants organization
+    public static final double wheelDiam = 6f;
 }
