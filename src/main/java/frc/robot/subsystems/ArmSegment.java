@@ -13,13 +13,11 @@ public class ArmSegment extends SubsystemBase {
     }
     
     public void initialize() {
-        armMotor.
+        armMotor.set(0);
         // RobotContainer.joystick.toggleWhenActive(new Move(), true);
     }
 
-    // This method will be called once per scheduler run
-    @Override
-    public void periodic() {
-        RobotContainer.move.execute();
+    public CANSparkMax getMotor() {
+        return armMotor;
     }
 }

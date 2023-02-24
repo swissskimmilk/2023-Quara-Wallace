@@ -53,4 +53,15 @@ public final class Constants {
     public static final double defRotMult = 0.6;
 
     public static final int intakeSpeed = 1;
+
+    // PID shit 
+    public static final int fArmKP = 40;
+    public static final int fArmKI = 0; 
+    public static final int fArmKD = 5;
+    public static final int sArmKP = 40;
+    public static final int sArmKI = 0; 
+    public static final int sArmKD = 5;
+    public static final int dTKP = 20;
+    public static final int dTKI = 0;
+    public static final int dTKD = 20;
 }

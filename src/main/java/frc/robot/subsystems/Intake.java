@@ -15,7 +15,7 @@ public class Intake extends SubsystemBase {
     public Intake(CANSparkMax m_rightIntake, CANSparkMax m_leftIntake) {
         rightIntake = m_rightIntake;
         leftIntake = m_leftIntake;
-        // Second parameter inverts direction 
+        // Second parameter inverts direction since the motors should be turning opposite directions at all times  
         leftIntake.follow(rightIntake, true);
     }
     

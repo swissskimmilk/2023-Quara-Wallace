@@ -39,29 +39,6 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     
-    // Create controller objects 
-    RobotContainer.xController = new XboxController(Constants.xboxController);
-    RobotContainer.driverDashboard = new Joystick(Constants.joystick);
-
-    // Create move system 
-    RobotContainer.drivetrain = new Drivetrain();
-    RobotContainer.move = new Move(RobotContainer.drivetrain);
-    
-    // Create motor objects 
-    RobotContainer.rightLeader = new WPI_VictorSPX(Constants.RightLeader);
-    RobotContainer.leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
-    RobotContainer.rightFollower = new WPI_VictorSPX(Constants.RightFollower);
-    RobotContainer.leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
-    RobotContainer.rightIntake = new CANSparkMax(Constants.RightIntake, CANSparkMaxLowLevel.MotorType.kBrushless);
-    RobotContainer.leftIntake = new CANSparkMax(Constants.LeftIntake, CANSparkMaxLowLevel.MotorType.kBrushless);
-    RobotContainer.firstArm = new CANSparkMax(Constants.FirstArm, CANSparkMaxLowLevel.MotorType.kBrushless);
-    RobotContainer.secondArm = new CANSparkMax(Constants.SecondArm, CANSparkMaxLowLevel.MotorType.kBrushless);
-
-    // Create groups and diffDrive 
-    RobotContainer.rightGroup = new MotorControllerGroup(RobotContainer.rightLeader, RobotContainer.rightFollower);
-    RobotContainer.leftGroup = new MotorControllerGroup(RobotContainer.leftLeader, RobotContainer.leftFollower);
-    RobotContainer.myRobot = new DifferentialDrive(RobotContainer.leftGroup, RobotContainer.rightGroup);
-    
     m_robotContainer = new RobotContainer();
   }
 

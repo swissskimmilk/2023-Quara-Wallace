@@ -14,39 +14,43 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-//This class is where the bulk of the robot should be declared.
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
+
+//This class is where the bulk of the robot should be declared.
 public class RobotContainer {
 
   // The controllers 
-  public static Joystick driverDashboard;
-  public static XboxController xController;
+  public static Joystick driverDashboard = new Joystick(Constants.joystick);
+  public static XboxController xController = new XboxController(Constants.xboxController);
 
   // Movement system
-  public static Drivetrain drivetrain;
-  public static Move move;
+  public static Drivetrain drivetrain = new Drivetrain();
+  public static Move move = new Move(drivetrain);
 
   // Drivetrain motors 
-  public static WPI_VictorSPX rightLeader;
-  public static WPI_VictorSPX rightFollower;
-  public static WPI_VictorSPX leftLeader;
-  public static WPI_VictorSPX leftFollower;
+  public static WPI_VictorSPX rightLeader = new WPI_VictorSPX(Constants.RightLeader);
+  public static WPI_VictorSPX rightFollower = new WPI_VictorSPX(Constants.RightFollower);
+  public static WPI_VictorSPX leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
+  public static WPI_VictorSPX leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
 
   // Intake  
-  public static CANSparkMax rightIntake; 
-  public static CANSparkMax leftIntake;
+  public static CANSparkMax rightIntake = new CANSparkMax(Constants.RightIntake, CANSparkMaxLowLevel.MotorType.kBrushless); 
+  public static CANSparkMax leftIntake = new CANSparkMax(Constants.LeftIntake, CANSparkMaxLowLevel.MotorType.kBrushless);;
   private static Intake intake = new Intake(rightIntake, leftIntake);
 
   // Arm motors
-  public static CANSparkMax firstArm; 
-  public static CANSparkMax secondArm;
+  public static CANSparkMax firstArm = new CANSparkMax(Constants.FirstArm, CANSparkMaxLowLevel.MotorType.kBrushless);
+  public static ArmSegment firstArmSegment = new ArmSegment(firstArm);
+  public static CANSparkMax secondArm = new CANSparkMax(Constants.SecondArm, CANSparkMaxLowLevel.MotorType.kBrushless);
+  public static ArmSegment secondArmSegment = new ArmSegment(secondArm);
 
   // The groups for the motors 
-  public static MotorControllerGroup rightGroup;
-  public static MotorControllerGroup leftGroup;
+  public static MotorControllerGroup rightGroup = new MotorControllerGroup(rightLeader, rightFollower);
+  public static MotorControllerGroup leftGroup = new MotorControllerGroup(leftLeader, leftFollower);
 
   // DifferentialDrive is what actually performs the movements 
-  public static DifferentialDrive myRobot;
+  public static DifferentialDrive myRobot = new DifferentialDrive(leftGroup, rightGroup);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
