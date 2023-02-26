@@ -74,4 +74,7 @@ public final class Constants {
 
     // Ronan things that Aidan will have to sort later if he wants organization
     public static final double wheelDiam = 6f;
+
+    // tolerances
+    public static final int armTolerance = 1;
 }
