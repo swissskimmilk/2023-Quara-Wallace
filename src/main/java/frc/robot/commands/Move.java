@@ -66,7 +66,7 @@ public class Move extends CommandBase {
     if (driveMode == DriveMode.arcadeDrive) {
       double speed = RobotContainer.xController.getLeftY();
       double rotation = RobotContainer.xController.getLeftX();
-      RobotContainer.myRobot.arcadeDrive(rotation * rotMult, spdMult * speed);
+      RobotContainer.myRobot.arcadeDrive(rotation * rotMult, -spdMult * speed);
       //System.out.println("leftX: " + RobotContainer.xController.getLeftX() + " | leftY: " + RobotContainer.xController.getLeftY() + " | rightX: " + RobotContainer.xController.getRightX() + " | " + RobotContainer.xController.getRightY());
     }
     else if (driveMode == DriveMode.tankDrive) {
