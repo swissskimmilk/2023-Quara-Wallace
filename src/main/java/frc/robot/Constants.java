@@ -7,9 +7,9 @@ import java.util.Map;
 public final class Constants {
     // The ids for the motors 
     public static final int RightLeader = 1;
-    public static final int RightFollower = 2;
-    public static final int LeftLeader = 3;
-    public static final int LeftFollower = 4;
+    public static final int RightFollower = 0;
+    public static final int LeftLeader = 13;
+    public static final int LeftFollower = 12;
     public static final int RightIntake = 5;
     public static final int LeftIntake = 6; 
     public static final int FirstArm = 7; 
