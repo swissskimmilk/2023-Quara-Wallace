@@ -13,8 +13,11 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.Constants;
+
 import frc.robot.commands.Move;
 // Imports subsystems and commands 
 import frc.robot.subsystems.Drivetrain;
@@ -40,6 +43,16 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     
     m_robotContainer = new RobotContainer();
+    
+    SmartDashboard.putNumber("FA kP", Constants.fArmKP);
+    SmartDashboard.putNumber("FA kI", Constants.fArmKI);
+    SmartDashboard.putNumber("FA kD", Constants.fArmKD);
+    SmartDashboard.putNumber("FA kF", Constants.fArmKF);
+    SmartDashboard.putNumber("SA kP", Constants.sArmKP);
+    SmartDashboard.putNumber("SA kI", Constants.sArmKI);
+    SmartDashboard.putNumber("SA kD", Constants.sArmKD);
+    SmartDashboard.putNumber("SA kF", Constants.sArmKF);
+    SmartDashboard.putNumber("Arm Error", Constants.armError);
   }
 
   /**
@@ -94,6 +107,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
   }
 
   /** This function is called periodically during operator control. */

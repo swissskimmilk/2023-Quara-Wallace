@@ -66,6 +66,10 @@ public final class Constants {
     public static final double sArmKP = 5;
     public static final double sArmKI = 0; 
     public static final double sArmKD = 1;
+    public static final double sArmKF = 7;
+    // Update later 
+    public static final double sArmGearRatio = 150;
+    public static final double sArmStartingAngle = -145;
 
     // PID for both arms 
     public static final double armError = 0.5;
