@@ -35,6 +35,10 @@ public class ArmSegment extends SubsystemBase {
     }
 
     public Command moveDown(double speed) {
-        return this.runOnce(() -> armMotor.set(speed));
+        return this.runOnce(() -> armMotor.set(-speed));
+    }
+
+    public Command stopMovementCommand() {
+        return this.runOnce(() -> armMotor.set(0));
     }
 }

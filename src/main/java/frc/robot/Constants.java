@@ -5,7 +5,7 @@ import java.util.Map;
 
 // Stores constants (duh)
 public final class Constants {
-    // The ids for the motors 
+    // Motor ids - should be setup as of 3/9
     public static final int RightLeader = 1;
     public static final int RightFollower = 4;
     public static final int LeftLeader = 3;
@@ -15,15 +15,34 @@ public final class Constants {
     public static final int FirstArm = 7; 
     public static final int SecondArm = 8; 
 
-    // The id for the joystick 
+    // Controller ids
     public static final int joystick = 0;
-
-    // The id for the XboxController
     public static final int xboxController = 1;
     
-    public static final int bStartIntake = 0;
-    public static final int bStartOuttake = 0;
-    public static final int bStopIntake = 0;
+    // Driver station buttons 
+    public static final int bConeRange = 0;
+    public static final int bCubeRange = 1;
+
+    public static final int bUpperScoring = 2;
+    public static final int bMiddleScoring = 3;
+    public static final int bLowerScoring = 4;
+
+    public static final int bKnockedIntake = 5;
+    public static final int bPortalIntake = 6;
+    public static final int bFullyRetract = 7;
+
+    public static final int bFAManualUp = 8;
+    public static final int bFAManualDown = 9;
+
+    public static final int bSAManualUp = 10;
+    public static final int bSAManualDown = 11;
+
+    public static final int bStopArm = 12;
+
+    // Controller buttons 
+    public static final int bStartIntake = 1;
+    public static final int bStartOuttake = 2;
+    public static final int bStopIntake = 3;
 
     // Constants for movement  
     public enum DriveMode {

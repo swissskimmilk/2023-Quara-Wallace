@@ -65,9 +65,25 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    // This is wrong now, should be set the controller. It will break something.
     new JoystickButton(driverDashboard, Constants.bStartIntake).onTrue(intake.intakeCommand());
     new JoystickButton(driverDashboard, Constants.bStartOuttake).onTrue(intake.outtakeCommand());
     new JoystickButton(driverDashboard, Constants.bStopIntake).onTrue(intake.stopCommand());
+
+    new JoystickButton(driverDashboard, Constants.bFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
+    new JoystickButton(driverDashboard, Constants.bFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
+    
+    new JoystickButton(driverDashboard, Constants.bSAManualUp).onTrue(secondArmSegment.moveUp(Constants.fArmSpeed));
+    new JoystickButton(driverDashboard, Constants.bSAManualDown).onTrue(secondArmSegment.moveDown(Constants.fArmSpeed));
+    
+    new JoystickButton(driverDashboard, Constants.bStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
+    
+    // Hi Jordan. Make this work. 
+    //new JoystickButton(driverDashboard, Constants.bCubeRange).onTrue(rangeSetter.smthidk);
+    //new JoystickButton(driverDashboard, Constants.bConeRange).onTrue(rangeSetter.smthidk);
+
+    // This is probabally the wrong way to call a command. Also this is 100% temporary
+    new JoystickButton(driverDashboard, Constants.bUpperScoring).onTrue(new SetFirstArmToPosition(firstArmSegment, 90));
   }
 
   /**
