@@ -52,7 +52,10 @@ public final class Constants {
     public static final double defSpdMult = -0.75;
     public static final double defRotMult = 0.6;
 
+    // Motor speeds
     public static final double intakeSpeed = 1;
+    public static final double fArmSpeed = 0.2;
+    public static final double sArmSpeed = 0.2;
 
     // PID for first arm
     public static final double fArmKP = 10; 

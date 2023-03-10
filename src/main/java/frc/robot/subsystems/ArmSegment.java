@@ -29,4 +29,12 @@ public class ArmSegment extends SubsystemBase {
     public SparkMaxPIDController getController() {
         return pidController;
     }
+
+    public Command moveUp(double speed) {
+        return this.runOnce(() -> armMotor.set(speed));
+    }
+
+    public Command moveDown(double speed) {
+        return this.runOnce(() -> armMotor.set(speed));
+    }
 }
