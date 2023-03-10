@@ -52,18 +52,28 @@ public final class Constants {
     public static final double defSpdMult = -0.75;
     public static final double defRotMult = 0.6;
 
-    public static final int intakeSpeed = 1;
+    public static final double intakeSpeed = 1;
 
-    // PID shit 
-    public static final int fArmKP = 40; // pretty sure these should be low doubles but idk shrug
-    public static final int fArmKI = 0; 
-    public static final int fArmKD = 5;
-    public static final int sArmKP = 40;
-    public static final int sArmKI = 0; 
-    public static final int sArmKD = 5;
-    public static final int dTKP = 20;
-    public static final int dTKI = 0;
-    public static final int dTKD = 20;
+    // PID for first arm
+    public static final double fArmKP = 10; 
+    public static final double fArmKI = 0; 
+    public static final double fArmKD = 1;
+    public static final double fArmKF = 7;
+    public static final double fArmGearRatio = 360;
+    public static final double fArmStartingAngle = 30;
+
+    // PID for second arm
+    public static final double sArmKP = 5;
+    public static final double sArmKI = 0; 
+    public static final double sArmKD = 1;
+
+    // PID for both arms 
+    public static final double armError = 0.5;
+
+    public static final double dTKP = 10;
+    public static final double dTKI = 0;
+    public static final double dTKD = 2;
+
     public static final double pidPeriod = 20;
 
     // FF thing that might get deleted later

@@ -56,6 +56,11 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+
+    // For figuring out what the fuck the buttons are 
+    for (int i = 0; i < 14; i++) {
+      System.out.println("Button " + i + ": " + RobotContainer.driverDashboard.getRawButton(i));
+    }
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
