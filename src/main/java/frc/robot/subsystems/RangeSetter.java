@@ -16,16 +16,13 @@ public class RangeSetter extends SubsystemBase {
         sole = ds;
         comp = c;
     }
- 
+    @Override
     public void initialize() {
         comp.enableDigital();
         sole.set(DoubleSolenoid.Value.kReverse);
     }
 
 
-    // public Command coneRangeCommand() {
-    //     return this.runOnce();
-    // }
     public Command coneRangeCommand() {
         return this.runOnce(() -> sole.set(DoubleSolenoid.Value.kReverse));
     }
