@@ -18,7 +18,7 @@ public class Intake extends SubsystemBase {
         // Second parameter inverts direction since the motors should be turning opposite directions at all times  
         leftIntake.follow(rightIntake, true);
     }
-    
+    @Override
     public void initialize() {
         rightIntake.set(0);
     }
