@@ -3,9 +3,11 @@ package frc.robot;
 // Imports subsystems and commands 
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
-
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -21,6 +23,13 @@ import com.revrobotics.CANSparkMaxLowLevel;
 
 //This class is where the bulk of the robot should be declared.
 public class RobotContainer {
+
+  // pnumatics range setter
+  public static DoubleSolenoid ds = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+  public static Compressor comp = new Compressor(0, PneumaticsModuleType.CTREPCM);
+
+  public static RangeSetter ranSet = new RangeSetter(ds, comp);
+
 
   // The controllers 
   public static Joystick driverDashboard = new Joystick(Constants.joystick);
@@ -73,9 +82,9 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     // This is wrong now, should be set the controller. It will break something.
-    new JoystickButton(driverDashboard, Constants.bStartIntake).onTrue(intake.intakeCommand());
-    new JoystickButton(driverDashboard, Constants.bStartOuttake).onTrue(intake.outtakeCommand());
-    new JoystickButton(driverDashboard, Constants.bStopIntake).onTrue(intake.stopCommand());
+    new JoystickButton(xController, Constants.bStartIntake).onTrue(intake.intakeCommand());
+    new JoystickButton(xController, Constants.bStartOuttake).onTrue(intake.outtakeCommand());
+    new JoystickButton(xController, Constants.bStopIntake).onTrue(intake.stopCommand());
 
     new JoystickButton(driverDashboard, Constants.bFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
     new JoystickButton(driverDashboard, Constants.bFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
@@ -85,9 +94,15 @@ public class RobotContainer {
     
     new JoystickButton(driverDashboard, Constants.bStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
     
+<<<<<<< HEAD
     // Hi Jordan. Make this work. "o/ - Jordan" 
     new JoystickButton(driverDashboard, Constants.bCubeRange).onTrue(rangeSetter.cubeRangeCommand);
     new JoystickButton(driverDashboard, Constants.bConeRange).onTrue(rangeSetter.smthidk);
+=======
+    // Hi Jordan. Make this work. 
+    new JoystickButton(driverDashboard, Constants.bCubeRange).onTrue(ranSet.cubeRangeCommand());
+    new JoystickButton(driverDashboard, Constants.bConeRange).onTrue(ranSet.coneRangeCommand());
+>>>>>>> 0d5e51feb2677fe2447bbdd4a5f3b939b457858d
 
     // This is probabally the wrong way to call a command. Also this is 100% temporary
     new JoystickButton(driverDashboard, Constants.bUpperScoring).onTrue(new SetFirstArmToPosition(firstArmSegment, 90));
