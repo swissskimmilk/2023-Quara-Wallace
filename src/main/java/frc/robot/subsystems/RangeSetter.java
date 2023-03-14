@@ -15,13 +15,9 @@ public class RangeSetter extends SubsystemBase {
     public RangeSetter(DoubleSolenoid ds, Compressor c) {
         sole = ds;
         comp = c;
-    }
-    @Override
-    public void initialize() {
         comp.enableDigital();
         sole.set(DoubleSolenoid.Value.kReverse);
     }
-
 
     public Command coneRangeCommand() {
         return this.runOnce(() -> sole.set(DoubleSolenoid.Value.kReverse));

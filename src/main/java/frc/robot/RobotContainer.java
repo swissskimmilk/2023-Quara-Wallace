@@ -32,6 +32,7 @@ public class RobotContainer {
   // The controllers 
   public static Joystick driverDashboard = new Joystick(Constants.joystick);
   public static XboxController xController = new XboxController(Constants.xboxController);
+  public static Joystick oldJoystick = new Joystick(Constants.oldStick);
 
   // Movement system
   public static Drivetrain drivetrain = new Drivetrain();
@@ -82,8 +83,8 @@ public class RobotContainer {
     new JoystickButton(driverDashboard, Constants.bFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
     new JoystickButton(driverDashboard, Constants.bFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
     
-    new JoystickButton(driverDashboard, Constants.bSAManualUp).onTrue(secondArmSegment.moveUp(Constants.fArmSpeed));
-    new JoystickButton(driverDashboard, Constants.bSAManualDown).onTrue(secondArmSegment.moveDown(Constants.fArmSpeed));
+    new JoystickButton(driverDashboard, Constants.bSAManualUp).onTrue(secondArmSegment.moveUp(Constants.sArmSpeed));
+    new JoystickButton(driverDashboard, Constants.bSAManualDown).onTrue(secondArmSegment.moveDown(Constants.sArmSpeed));
     
     new JoystickButton(driverDashboard, Constants.bStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
     

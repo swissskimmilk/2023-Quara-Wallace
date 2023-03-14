@@ -15,6 +15,7 @@ public class Move extends CommandBase {
   private DriveMode driveMode = Constants.defDriveMode;
   public Drivetrain drivetrain;
 
+
   public Move(Drivetrain mDrivetrain) {
     drivetrain = mDrivetrain;
     addRequirements(mDrivetrain);
@@ -31,7 +32,7 @@ public class Move extends CommandBase {
     // Switch speed by iterating over the map and checking if any of the buttons is pressed
     for (Map.Entry<Integer,Double> entry : Constants.speedMults.entrySet())
     {
-      if (RobotContainer.driverDashboard.getRawButtonPressed(entry.getKey()))
+      if (RobotContainer.oldJoystick.getRawButtonPressed(entry.getKey()))
       {
         spdMult = entry.getValue();
         System.out.println("Speed mult changed to: " + spdMult);
@@ -41,7 +42,7 @@ public class Move extends CommandBase {
     // Switch rotation speed by iterating over the map and checking if any of the buttons is pressed
     for (Map.Entry<Integer,Double> entry : Constants.rotMults.entrySet())
     {
-      if (RobotContainer.driverDashboard.getRawButtonPressed(entry.getKey()))
+      if (RobotContainer.oldJoystick.getRawButtonPressed(entry.getKey()))
       {
         rotMult = entry.getValue();
         System.out.println("Rot mult changed to: " + rotMult);

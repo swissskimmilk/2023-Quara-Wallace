@@ -15,9 +15,6 @@ public class ArmSegment extends SubsystemBase {
     public ArmSegment(CANSparkMax m_armMotor) {
         armMotor = m_armMotor;
         pidController = armMotor.getPIDController();
-    }
-    @Override
-    public void initialize() {
         armMotor.set(0);
         // RobotContainer.joystick.toggleWhenActive(new Move(), true);
     }

@@ -10,14 +10,15 @@ public final class Constants {
     public static final int RightFollower = 4;
     public static final int LeftLeader = 3;
     public static final int LeftFollower = 2;
-    public static final int RightIntake = 5;
+    public static final int RightIntake = 7;
     public static final int LeftIntake = 6; 
-    public static final int FirstArm = 7; 
+    public static final int FirstArm = 5; 
     public static final int SecondArm = 8; 
 
     // Controller ids
     public static final int joystick = 0;
     public static final int xboxController = 1;
+    public static final int oldStick = 2;
     
     // Driver station buttons 
     public static final int bConeRange = 1;
@@ -73,8 +74,8 @@ public final class Constants {
 
     // Motor speeds
     public static final double intakeSpeed = 1;
-    public static final double fArmSpeed = 0.2;
-    public static final double sArmSpeed = 0.2;
+    public static final double fArmSpeed = 1;
+    public static final double sArmSpeed = 1;
 
     // PID for first arm
     public static final double fArmKP = 10; 
