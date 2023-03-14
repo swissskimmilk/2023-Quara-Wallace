@@ -16,7 +16,7 @@ public class ArmSegment extends SubsystemBase {
         armMotor = m_armMotor;
         pidController = armMotor.getPIDController();
     }
-    
+    @Override
     public void initialize() {
         armMotor.set(0);
         // RobotContainer.joystick.toggleWhenActive(new Move(), true);

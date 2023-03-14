@@ -17,6 +17,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Constants;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.TimedRobot;
 
 import frc.robot.commands.Move;
 // Imports subsystems and commands 
@@ -42,6 +44,7 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     
+    CameraServer.startAutomaticCapture();
     m_robotContainer = new RobotContainer();
     
     SmartDashboard.putNumber("FA kP", Constants.fArmKP);

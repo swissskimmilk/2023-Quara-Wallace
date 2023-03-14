@@ -17,16 +17,20 @@ public class RangeSetter extends SubsystemBase {
         sole = ds;
         comp = c;
     }
- 
+    @Override
     public void initialize() {
         comp.enableDigital();
         sole.set(DoubleSolenoid.Value.kReverse);
         boolean enabled = pcmCompressor.enabled();
     }
 
+<<<<<<< HEAD
     // public Command coneRangeCommand() {
     //     return this.runOnce();
     // }
+=======
+
+>>>>>>> c9bb7c1315cbec179d63528f34934b61fa1d0e78
     public Command coneRangeCommand() {
         return this.runOnce(() -> sole.set(DoubleSolenoid.Value.kReverse));
     }
