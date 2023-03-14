@@ -36,10 +36,6 @@ public class RobotContainer {
   public static XboxController xController = new XboxController(Constants.xboxController);
   public static Joystick oldJoystick = new Joystick(Constants.oldStick);
 
-  // Movement system
-  public static Drivetrain drivetrain = new Drivetrain();
-  public static Move move = new Move(drivetrain);
-
   // Drivetrain motors 
   public static WPI_VictorSPX rightLeader = new WPI_VictorSPX(Constants.RightLeader);
   public static WPI_VictorSPX rightFollower = new WPI_VictorSPX(Constants.RightFollower);
@@ -60,14 +56,13 @@ public class RobotContainer {
   // The groups for the motors 
   public static MotorControllerGroup rightGroup = new MotorControllerGroup(rightLeader, rightFollower);
   public static MotorControllerGroup leftGroup = new MotorControllerGroup(leftLeader, leftFollower);
-
+  
   // DifferentialDrive is what actually performs the movements 
   public static DifferentialDrive myRobot = new DifferentialDrive(leftGroup, rightGroup);
-
-  // Pneumatics stuff
-  public static Compressor pcmCompressor = new Compressor(0, PneumaticsModuleType.CTREPCM); //i dont even know if we are gonna use this
-  public static DoubleSolenoid DoublePCM = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
   
+  // Movement system
+  public static Drivetrain drivetrain = new Drivetrain();
+  public static Move move = new Move(drivetrain);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -95,15 +90,8 @@ public class RobotContainer {
     
     new JoystickButton(driverDashboard, Constants.bStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
     
-<<<<<<< HEAD
-    // Hi Jordan. Make this work. "o/ - Jordan" 
-    new JoystickButton(driverDashboard, Constants.bCubeRange).onTrue(rangeSetter.cubeRangeCommand);
-    new JoystickButton(driverDashboard, Constants.bConeRange).onTrue(rangeSetter.smthidk);
-=======
-    // Hi Jordan. Make this work. 
     new JoystickButton(driverDashboard, Constants.bCubeRange).onTrue(ranSet.cubeRangeCommand());
     new JoystickButton(driverDashboard, Constants.bConeRange).onTrue(ranSet.coneRangeCommand());
->>>>>>> 0d5e51feb2677fe2447bbdd4a5f3b939b457858d
 
     // This is probabally the wrong way to call a command. Also this is 100% temporary
     new JoystickButton(driverDashboard, Constants.bUpperScoring).onTrue(new SetFirstArmToPosition(firstArmSegment, 90));

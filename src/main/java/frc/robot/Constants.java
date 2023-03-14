@@ -21,29 +21,29 @@ public final class Constants {
     public static final int oldStick = 2;
     
     // Driver station buttons 
-    public static final int bConeRange = 0;
-    public static final int bCubeRange = 1;
+    public static final int bConeRange = 1;
+    public static final int bCubeRange = 2;
 
-    public static final int bUpperScoring = 2;
-    public static final int bMiddleScoring = 3;
-    public static final int bLowerScoring = 4;
+    public static final int bUpperScoring = 6;
+    public static final int bMiddleScoring = 10;
+    public static final int bLowerScoring = 14;
 
-    public static final int bKnockedIntake = 5;
-    public static final int bPortalIntake = 6;
-    public static final int bFullyRetract = 7;
+    public static final int bKnockedIntake = 11;
+    public static final int bPortalIntake = 12;
+    public static final int bFullyRetract = 13;
 
-    public static final int bFAManualUp = 8;
-    public static final int bFAManualDown = 9;
+    public static final int bFAManualUp = 3;
+    public static final int bFAManualDown = 7;
 
-    public static final int bSAManualUp = 10;
-    public static final int bSAManualDown = 11;
+    public static final int bSAManualUp = 4;
+    public static final int bSAManualDown = 8;
 
-    public static final int bStopArm = 12;
+    public static final int bStopArm = 5;
 
     // Controller buttons 
-    public static final int bStartIntake = 1;
-    public static final int bStartOuttake = 2;
-    public static final int bStopIntake = 3;
+    public static final int bStartIntake = 5;
+    public static final int bStartOuttake = 6;
+    public static final int bStopIntake = 2;
 
     // Constants for movement  
     public enum DriveMode {
@@ -74,8 +74,8 @@ public final class Constants {
 
     // Motor speeds
     public static final double intakeSpeed = 1;
-    public static final double fArmSpeed = 1;
-    public static final double sArmSpeed = 1;
+    public static final double fArmSpeed = 0.5;
+    public static final double sArmSpeed = 0.5;
 
     // PID for first arm
     public static final double fArmKP = 10; 
