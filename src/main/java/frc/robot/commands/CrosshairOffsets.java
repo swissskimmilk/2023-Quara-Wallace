@@ -27,4 +27,19 @@ public class CrosshairOffsets extends CommandBase {
         ty = table.getEntry("ty");
         ta = table.getEntry("ta");
     }
+
+    @Override
+    public void execute()
+    {
+        //read values periodically
+        double x = tx.getDouble(0.0);
+        double y = ty.getDouble(0.0);
+        double area = ta.getDouble(0.0);
+
+        //post to smart dashboard periodically
+        SmartDashboard.putNumber("LimelightX", x);
+        SmartDashboard.putNumber("LimelightY", y);
+        SmartDashboard.putNumber("LimelightArea", area);
+
+    }
 }
