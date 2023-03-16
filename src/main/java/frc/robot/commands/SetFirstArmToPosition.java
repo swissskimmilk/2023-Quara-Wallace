@@ -7,7 +7,7 @@ import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax.ControlType;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Encoder;
@@ -54,9 +54,16 @@ public class SetFirstArmToPosition extends CommandBase {
 
     }
 
+    @Override
+    public void end(boolean interrupted) {
+        ResetArm reset = new ResetArm(armSegment);
+        CommandScheduler.getInstance().schedule(reset);
+    }
+
     // This can end immediatly since the PID controller perists and should keep the arm stationary 
     @Override
     public boolean isFinished() {
+        
         return true;
     }
 }

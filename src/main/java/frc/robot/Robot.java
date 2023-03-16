@@ -74,9 +74,9 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     // For figuring out what the fuck the buttons are 
-    for (int i = 0; i < 14; i++) {
-      System.out.println("Button " + i + ": " + RobotContainer.driverDashboard.getRawButton(i));
-    }
+    // for (int i = 0; i < 14; i++) {
+    //   System.out.println("Button " + i + ": " + RobotContainer.driverDashboard.getRawButton(i));
+    // }
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

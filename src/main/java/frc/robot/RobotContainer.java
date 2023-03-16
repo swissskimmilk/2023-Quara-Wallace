@@ -28,6 +28,7 @@ public class RobotContainer {
   public static DoubleSolenoid ds = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
   public static Compressor comp = new Compressor(0, PneumaticsModuleType.CTREPCM);
 
+
   public static RangeSetter ranSet = new RangeSetter(ds, comp);
 
 
@@ -94,7 +95,7 @@ public class RobotContainer {
     new JoystickButton(driverDashboard, Constants.bConeRange).onTrue(ranSet.coneRangeCommand());
 
     // This is probabally the wrong way to call a command. Also this is 100% temporary
-    new JoystickButton(driverDashboard, Constants.bUpperScoring).onTrue(new SetFirstArmToPosition(firstArmSegment, 90));
+    new JoystickButton(driverDashboard, Constants.bUpperScoring).whileTrue(new SetFirstArmToPosition(firstArmSegment, 90));
   }
 
   /**

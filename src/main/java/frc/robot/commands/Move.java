@@ -35,7 +35,7 @@ public class Move extends CommandBase {
       if (RobotContainer.oldJoystick.getRawButtonPressed(entry.getKey()))
       {
         spdMult = entry.getValue();
-        System.out.println("Speed mult changed to: " + spdMult);
+        // System.out.println("Speed mult changed to: " + spdMult);
       }
     }
 
@@ -45,7 +45,7 @@ public class Move extends CommandBase {
       if (RobotContainer.oldJoystick.getRawButtonPressed(entry.getKey()))
       {
         rotMult = entry.getValue();
-        System.out.println("Rot mult changed to: " + rotMult);
+        // System.out.println("Rot mult changed to: " + rotMult);
       }
     }
     
@@ -53,16 +53,16 @@ public class Move extends CommandBase {
     if (RobotContainer.xController.getAButtonPressed()) {
       if (driveMode == DriveMode.arcadeDrive) {
         driveMode = DriveMode.tankDrive;
-        System.out.println("Switched to tankDrive");
+        // System.out.println("Switched to tankDrive");
       }
       else if (driveMode == DriveMode.tankDrive) {
-        driveMode = DriveMode.arcadeDrive;
+        // driveMode = DriveMode.arcadeDrive;
         System.out.println("Switched to arcadeDrive");
       }
     }
     
-    System.out.println(RobotContainer.xController.getLeftY());
-    System.out.println(RobotContainer.xController.getLeftX());
+    // System.out.println(RobotContainer.xController.getLeftY());
+    // System.out.println(RobotContainer.xController.getLeftX());
     // Calls a function to move the robot depending on the driveMode constant 
     if (driveMode == DriveMode.arcadeDrive) {
       double speed = RobotContainer.xController.getLeftY();
