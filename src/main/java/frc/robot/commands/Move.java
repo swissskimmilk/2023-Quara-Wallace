@@ -30,24 +30,47 @@ public class Move extends CommandBase {
   @Override
   public void execute() {
     // Switch speed by iterating over the map and checking if any of the buttons is pressed
-    for (Map.Entry<Integer,Double> entry : Constants.speedMults.entrySet())
+    // for (Map.Entry<Integer,Double> entry : Constants.speedMults.entrySet())
+    // {
+    //   if (RobotContainer.oldJoystick.getRawButtonPressed(entry.getKey()))
+    //   {
+    //     spdMult = entry.getValue();
+    //     // System.out.println("Speed mult changed to: " + spdMult);
+    //   }
+    // }
+
+    // // Switch rotation speed by iterating over the map and checking if any of the buttons is pressed
+    // for (Map.Entry<Integer,Double> entry : Constants.rotMults.entrySet())
+    // {
+    //   if (RobotContainer.xController.getRawButtonPressed(entry.getKey()))
+    //   {
+    //     rotMult = entry.getValue();
+    //     // System.out.println("Rot mult changed to: " + rotMult);
+    //   }
+    // }
+
+    // lowest speed (1)
+    if(RobotContainer.xController.getXButtonPressed())
     {
-      if (RobotContainer.oldJoystick.getRawButtonPressed(entry.getKey()))
-      {
-        spdMult = entry.getValue();
-        // System.out.println("Speed mult changed to: " + spdMult);
-      }
+        spdMult = Constants.speedMults.get(8);
+        rotMult = Constants.rotMults.get(7);
     }
 
-    // Switch rotation speed by iterating over the map and checking if any of the buttons is pressed
-    for (Map.Entry<Integer,Double> entry : Constants.rotMults.entrySet())
+    // medium speed (2)
+    if(RobotContainer.xController.getXButtonPressed())
     {
-      if (RobotContainer.oldJoystick.getRawButtonPressed(entry.getKey()))
-      {
-        rotMult = entry.getValue();
-        // System.out.println("Rot mult changed to: " + rotMult);
-      }
+        spdMult = Constants.speedMults.get(10);
+        rotMult = Constants.rotMults.get(9);
     }
+
+    // highest speed (3)
+    if(RobotContainer.xController.getXButtonPressed())
+    {
+        spdMult = Constants.speedMults.get(12);
+        rotMult = Constants.rotMults.get(11);
+    }
+
+    
     
     // Switch driveMode
     if (RobotContainer.xController.getAButtonPressed()) {
