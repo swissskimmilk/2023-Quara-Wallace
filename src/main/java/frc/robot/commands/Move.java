@@ -57,14 +57,14 @@ public class Move extends CommandBase {
     }
 
     // medium speed (2)
-    if(RobotContainer.xController.getXButtonPressed())
+    if(RobotContainer.xController.getYButtonPressed())
     {
         spdMult = Constants.speedMults.get(10);
         rotMult = Constants.rotMults.get(9);
     }
 
     // highest speed (3)
-    if(RobotContainer.xController.getXButtonPressed())
+    if(RobotContainer.xController.getBButtonPressed())
     {
         spdMult = Constants.speedMults.get(12);
         rotMult = Constants.rotMults.get(11);
