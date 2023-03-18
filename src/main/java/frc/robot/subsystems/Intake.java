@@ -25,7 +25,7 @@ public class Intake extends SubsystemBase {
     }
 
     public Command outtakeCommand() {
-        return this.runOnce(() -> rightIntake.set(-Constants.intakeSpeed));
+        return this.runOnce(() -> rightIntake.set(-Constants.outtakeSpeed));
     }
 
     public Command stopCommand() {

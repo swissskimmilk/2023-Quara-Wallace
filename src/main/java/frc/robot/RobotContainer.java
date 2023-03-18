@@ -46,7 +46,7 @@ public class RobotContainer {
   // Intake  
   public static CANSparkMax rightIntake = new CANSparkMax(Constants.RightIntake, CANSparkMaxLowLevel.MotorType.kBrushless); 
   public static CANSparkMax leftIntake = new CANSparkMax(Constants.LeftIntake, CANSparkMaxLowLevel.MotorType.kBrushless);;
-  private static Intake intake = new Intake(rightIntake, leftIntake);
+  public static Intake intake = new Intake(rightIntake, leftIntake);
 
   // Arm motors
   public static CANSparkMax firstArm = new CANSparkMax(Constants.FirstArm, CANSparkMaxLowLevel.MotorType.kBrushless);
@@ -64,6 +64,8 @@ public class RobotContainer {
   // Movement system
   public static Drivetrain drivetrain = new Drivetrain();
   public static Move move = new Move(drivetrain);
+
+  public static Autonomous autonomousCommand = new Autonomous();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -83,19 +85,19 @@ public class RobotContainer {
     new JoystickButton(xController, Constants.bStartOuttake).onTrue(intake.outtakeCommand());
     new JoystickButton(xController, Constants.bStopIntake).onTrue(intake.stopCommand());
 
-    new JoystickButton(driverDashboard, Constants.bFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
-    new JoystickButton(driverDashboard, Constants.bFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
+    // new JoystickButton(driverDashboard, Constants.bFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
+    // new JoystickButton(driverDashboard, Constants.bFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
     
-    new JoystickButton(driverDashboard, Constants.bSAManualUp).onTrue(secondArmSegment.moveUp(Constants.sArmSpeed));
-    new JoystickButton(driverDashboard, Constants.bSAManualDown).onTrue(secondArmSegment.moveDown(Constants.sArmSpeed));
+    new JoystickButton(xController, Constants.bControllerSAManualUp).onTrue(secondArmSegment.moveUp(Constants.sArmSpeed));
+    new JoystickButton(xController, Constants.bControllerSAManualDown).onTrue(secondArmSegment.moveDown(Constants.sArmSpeed));
     
-    new JoystickButton(driverDashboard, Constants.bStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
+    new JoystickButton(xController, Constants.bControllerStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
     
-    new JoystickButton(driverDashboard, Constants.bCubeRange).onTrue(ranSet.cubeRangeCommand());
-    new JoystickButton(driverDashboard, Constants.bConeRange).onTrue(ranSet.coneRangeCommand());
+    new JoystickButton(xController, Constants.bControllerCubeRange).onTrue(ranSet.cubeRangeCommand());
+    new JoystickButton(xController, Constants.bControllerConeRange).onTrue(ranSet.coneRangeCommand());
 
-    // This is probabally the wrong way to call a command. Also this is 100% temporary
-    new JoystickButton(driverDashboard, Constants.bUpperScoring).whileTrue(new SetFirstArmToPosition(firstArmSegment, 90));
+    // // This is probabally the wrong way to call a command. Also this is 100% temporary
+    // new JoystickButton(driverDashboard, Constants.bUpperScoring).whileTrue(new SetFirstArmToPosition(firstArmSegment, 90));
   }
 
   /**
@@ -103,8 +105,8 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  // public Command getAutonomousCommand() {
-  //   // An ExampleCommand will run in autonomous
-  //   return m_autoCommand;
-  // }
+  public Command getAutonomousCommand() {
+    
+    return autonomousCommand;
+  }
 }

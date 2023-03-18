@@ -11,9 +11,9 @@ public final class Constants {
     public static final int LeftLeader = 3;
     public static final int LeftFollower = 2;
     public static final int RightIntake = 7;
-    public static final int LeftIntake = 6; 
+    public static final int LeftIntake = 8; 
     public static final int FirstArm = 5; 
-    public static final int SecondArm = 8; 
+    public static final int SecondArm = 6; 
 
     // Controller ids
     public static final int joystick = 0;
@@ -45,6 +45,13 @@ public final class Constants {
     public static final int bStartOuttake = 6;
     public static final int bStopIntake = 2;
 
+    public static final int bControllerConeRange = 7;
+    public static final int bControllerCubeRange = 8;
+
+    public static final int bControllerSAManualUp = 4;
+    public static final int bControllerSAManualDown= 1;
+    public static final int bControllerStopArm = 3;
+
     // Constants for movement  
     public enum DriveMode {
         tankDrive,
@@ -72,10 +79,13 @@ public final class Constants {
     public static final double defSpdMult = -0.75;
     public static final double defRotMult = 0.6;
 
+    public static final double autonSpeed = -0.5;
+
     // Motor speeds
-    public static final double intakeSpeed = 1;
-    public static final double fArmSpeed = 0.5;
-    public static final double sArmSpeed = 0.5;
+    public static final double intakeSpeed = 0.2;
+    public static final double outtakeSpeed = 0.1;
+    public static final double fArmSpeed = 0.3;
+    public static final double sArmSpeed = 0.1;
 
     // PID for first arm
     public static final double fArmKP = 10; 

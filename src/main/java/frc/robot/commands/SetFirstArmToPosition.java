@@ -60,6 +60,8 @@ public class SetFirstArmToPosition extends CommandBase {
         CommandScheduler.getInstance().schedule(reset);
     }
 
+
+
     // This can end immediatly since the PID controller perists and should keep the arm stationary 
     @Override
     public boolean isFinished() {
