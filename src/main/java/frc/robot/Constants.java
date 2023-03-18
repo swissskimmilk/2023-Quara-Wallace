@@ -88,8 +88,9 @@ public final class Constants {
     public static final double autonSpeed = -0.5;
 
     // Motor speeds
-    public static final double intakeSpeed = 0.2;
-    public static final double outtakeSpeed = 0.1;
+    public static final double intakeSpeed = 0.35;
+    public static final double outtakeSpeed = 1;
+    public static final double autoOuttakeSpeed = 0.5;
     public static final double fArmSpeed = 0.3;
     public static final double sArmSpeed = 0.1;
 

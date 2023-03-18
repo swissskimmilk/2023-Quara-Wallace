@@ -16,9 +16,9 @@ public class Autonomous extends SequentialCommandGroup {
 
         new DriveForTime(RobotContainer.drivetrain, 0.5, true),
 
-        RobotContainer.intake.outtakeCommand(),
+        RobotContainer.intake.autoOuttakeCommand(),
 
-        new Delay(1), 
+        new Delay(5), 
 
         RobotContainer.intake.stopCommand()
 

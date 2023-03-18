@@ -31,4 +31,10 @@ public class Intake extends SubsystemBase {
     public Command stopCommand() {
         return this.runOnce(() -> rightIntake.set(0));
     }
+
+    public Command autoOuttakeCommand() {
+        return this.runOnce(() -> rightIntake.set(-Constants.autoOuttakeSpeed));
+    }
+
+
 }
