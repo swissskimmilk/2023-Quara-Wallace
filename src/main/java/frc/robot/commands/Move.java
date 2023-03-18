@@ -54,6 +54,7 @@ public class Move extends CommandBase {
     {
         spdMult = Constants.speedMults.get(8);
         rotMult = Constants.rotMults.get(7);
+        System.out.println("Switched to lowest speed");
     }
 
     // medium speed (2)
@@ -61,6 +62,7 @@ public class Move extends CommandBase {
     {
         spdMult = Constants.speedMults.get(10);
         rotMult = Constants.rotMults.get(9);
+        System.out.println("Switched to medium speed");
     }
 
     // highest speed (3)
@@ -68,6 +70,7 @@ public class Move extends CommandBase {
     {
         spdMult = Constants.speedMults.get(12);
         rotMult = Constants.rotMults.get(11);
+        System.out.println("Switched to highest speed");
     }
 
     
