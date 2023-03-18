@@ -8,10 +8,12 @@ import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.Constants.DriveMode;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.RangeSetter;
+import frc.robot.RobotContainer;
 
 public class Move extends CommandBase {
-  private double spdMult = Constants.defSpdMult;
-  private double rotMult = Constants.defRotMult;
+  private double spdMult;
+  private double rotMult;
   private DriveMode driveMode = Constants.defDriveMode;
   public Drivetrain drivetrain;
 
@@ -21,9 +23,16 @@ public class Move extends CommandBase {
     addRequirements(mDrivetrain);
   }
 
+  public void setDefaultSpeed()
+  {
+    spdMult = Constants.speedMults.get(10);
+    rotMult = Constants.rotMults.get(9);
+  }
+
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    setDefaultSpeed();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -72,20 +81,24 @@ public class Move extends CommandBase {
         rotMult = Constants.rotMults.get(11);
         System.out.println("Switched to highest speed");
     }
-
     
     
     // Switch driveMode
-    if (RobotContainer.xController.getAButtonPressed()) {
-      if (driveMode == DriveMode.arcadeDrive) {
-        driveMode = DriveMode.tankDrive;
-        // System.out.println("Switched to tankDrive");
-      }
-      else if (driveMode == DriveMode.tankDrive) {
-        // driveMode = DriveMode.arcadeDrive;
-        System.out.println("Switched to arcadeDrive");
-      }
-    }
+    // if (RobotContainer.xController.getAButtonPressed()) {
+    //   if (driveMode == DriveMode.arcadeDrive) {
+    //     driveMode = DriveMode.tankDrive;
+    //     // System.out.println("Switched to tankDrive");
+    //   }
+    //   else if (driveMode == DriveMode.tankDrive) {
+    //      driveMode = DriveMode.arcadeDrive;
+    //     System.out.println("Switched to arcadeDrive");
+    //   }
+
+
+
+
+    //   setDefaultSpeed();
+    // }
     
     // System.out.println(RobotContainer.xController.getLeftY());
     // System.out.println(RobotContainer.xController.getLeftX());

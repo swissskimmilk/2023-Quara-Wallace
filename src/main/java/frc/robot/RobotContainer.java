@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -25,7 +25,7 @@ import com.revrobotics.CANSparkMaxLowLevel;
 public class RobotContainer {
 
   // pnumatics range setter
-  public static DoubleSolenoid ds = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+  public static Solenoid ds = new Solenoid(PneumaticsModuleType.CTREPCM, 0);
   public static Compressor comp = new Compressor(0, PneumaticsModuleType.CTREPCM);
 
 
@@ -85,13 +85,13 @@ public class RobotContainer {
     new JoystickButton(xController, Constants.bStartOuttake).onTrue(intake.outtakeCommand());
     new JoystickButton(xController, Constants.bStopIntake).onTrue(intake.stopCommand());
 
-    // new JoystickButton(driverDashboard, Constants.bFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
-    // new JoystickButton(driverDashboard, Constants.bFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
+    new JoystickButton(oldJoystick, Constants.bJoystickFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
+    new JoystickButton(oldJoystick, Constants.bJoystickFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
     
-    new JoystickButton(xController, Constants.bControllerSAManualUp).onTrue(secondArmSegment.moveUp(Constants.sArmSpeed));
-    new JoystickButton(xController, Constants.bControllerSAManualDown).onTrue(secondArmSegment.moveDown(Constants.sArmSpeed));
+    new JoystickButton(oldJoystick, Constants.bJoystickSAManualUp).onTrue(secondArmSegment.moveUp(Constants.sArmSpeed));
+    new JoystickButton(oldJoystick, Constants.bJoystickSAManualDown).onTrue(secondArmSegment.moveDown(Constants.sArmSpeed));
     
-    new JoystickButton(xController, Constants.bControllerStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
+    new JoystickButton(oldJoystick, Constants.bJoystickStopArm).onTrue(firstArmSegment.stopMovementCommand().alongWith(secondArmSegment.stopMovementCommand()));
     
     new JoystickButton(xController, Constants.bControllerCubeRange).onTrue(ranSet.cubeRangeCommand());
     new JoystickButton(xController, Constants.bControllerConeRange).onTrue(ranSet.coneRangeCommand());

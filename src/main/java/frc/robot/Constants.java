@@ -43,14 +43,20 @@ public final class Constants {
     // Controller buttons 
     public static final int bStartIntake = 5;
     public static final int bStartOuttake = 6;
-    public static final int bStopIntake = 2;
+    public static final int bStopIntake = 7;
 
     public static final int bControllerConeRange = 7;
     public static final int bControllerCubeRange = 8;
 
-    public static final int bControllerSAManualUp = 4;
-    public static final int bControllerSAManualDown= 1;
-    public static final int bControllerStopArm = 3;
+    // public static final int bControllerSAManualUp = 4;
+    // public static final int bControllerSAManualDown= 1;
+    // public static final int bControllerStopArm = 3;
+
+    public static final int bJoystickFAManualUp = 8;
+    public static final int bJoystickFAManualDown= 7;
+    public static final int bJoystickSAManualUp = 10;
+    public static final int bJoystickSAManualDown= 9;
+    public static final int bJoystickStopArm = 11;
 
     // Constants for movement  
     public enum DriveMode {
@@ -60,13 +66,13 @@ public final class Constants {
 
     // WPI removed the functionality to change between joysticks with a constant 
     // Determines which DriveMode is the default on startup 
-    public static final DriveMode defDriveMode = DriveMode.arcadeDrive;
+    public static final DriveMode defDriveMode = DriveMode.tankDrive;
 
     // Key is the button and the value is the mult 
     public static final Map<Integer, Double> speedMults = new HashMap<>();
     static {
         speedMults.put(8, -0.5);
-        speedMults.put(10, -0.75);
+        speedMults.put(10, -0.8);
         speedMults.put(12, -0.9);
     }
     public static final Map<Integer, Double> rotMults = new HashMap<>();
