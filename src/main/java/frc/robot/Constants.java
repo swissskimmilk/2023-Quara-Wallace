@@ -43,10 +43,14 @@ public final class Constants {
     // Controller buttons 
     public static final int bStartIntake = 5;
     public static final int bStartOuttake = 6;
-    public static final int bStopIntake = 7;
+    public static final int bStopIntake = 2;
 
-    public static final int bControllerConeRange = 7;
-    public static final int bControllerCubeRange = 8;
+    public static final int bControllerConeRange = 4; 
+    public static final int bControllerCubeRange = 3; 
+    
+
+    //public static final int bControllerConeRange = 7;
+    //public static final int bControllerCubeRange = 8;
 
     // public static final int bControllerSAManualUp = 4;
     // public static final int bControllerSAManualDown= 1;
@@ -66,23 +70,23 @@ public final class Constants {
 
     // WPI removed the functionality to change between joysticks with a constant 
     // Determines which DriveMode is the default on startup 
-    public static final DriveMode defDriveMode = DriveMode.tankDrive;
+    public static final DriveMode defDriveMode = DriveMode.arcadeDrive;
 
     // Key is the button and the value is the mult 
     public static final Map<Integer, Double> speedMults = new HashMap<>();
     static {
-        speedMults.put(8, -0.5);
-        speedMults.put(10, -0.8);
-        speedMults.put(12, -0.9);
+        speedMults.put(8, -0.6);
+        speedMults.put(10, -0.6);
+        speedMults.put(12, -0.6);
     }
     public static final Map<Integer, Double> rotMults = new HashMap<>();
     static {
-        rotMults.put(7, 0.5);
+        rotMults.put(7, 0.6);
         rotMults.put(9, 0.6);
-        rotMults.put(11, 0.7);
+        rotMults.put(11, 0.6);
     }
     
-    public static final double defSpdMult = -0.75;
+    public static final double defSpdMult = -0.6;
     public static final double defRotMult = 0.6;
 
     public static final double autonSpeed = -0.5;
@@ -103,13 +107,13 @@ public final class Constants {
     public static final double fArmStartingAngle = 30;
 
     // PID for second arm
-    public static final double sArmKP = 5;
-    public static final double sArmKI = 0; 
-    public static final double sArmKD = 1;
-    public static final double sArmKF = 7;
+    public static final double sArmKP = 0.01;
+    public static final double sArmKI = 0.00001; 
+    public static final double sArmKD = 0.0001;
+    public static final double sArmKF = 0.003;
     // Update later 
-    public static final double sArmGearRatio = 150;
-    public static final double sArmStartingAngle = -145;
+    public static final double sArmGearRatio = 147;
+    public static final double sArmStartingAngle = 90;
 
     // PID for both arms 
     public static final double armError = 0.5;

@@ -19,6 +19,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Constants;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import com.revrobotics.SparkMaxRelativeEncoder;
+
 
 import frc.robot.commands.Move;
 // Imports subsystems and commands 
@@ -72,7 +74,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-
+    System.out.println(RobotContainer.secondArmSegment.getMotor().getEncoder(SparkMaxRelativeEncoder.Type.kHallSensor, 42).getPosition());
     // For figuring out what the fuck the buttons are 
     // for (int i = 0; i < 14; i++) {
     //   System.out.println("Button " + i + ": " + RobotContainer.driverDashboard.getRawButton(i));

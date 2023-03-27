@@ -29,21 +29,22 @@ public class SetSecondArmToPosition extends CommandBase {
     
     @Override
     public void initialize() {
+        
         // This will read and use the values off smartboard and use default if it can't. The values on the dashboard are set on robot init to the constants.
         SparkMaxPIDController cPidController = armSegment.getController();
-        cPidController.setP(SmartDashboard.getNumber("SA kP", Constants.sArmKP));
-        cPidController.setI(SmartDashboard.getNumber("SA kI", Constants.sArmKI));
-        cPidController.setD(SmartDashboard.getNumber("SA kD", Constants.sArmKD));
+        cPidController.setP(Constants.sArmKP);
+        cPidController.setI(Constants.sArmKI);
+        cPidController.setD(Constants.sArmKD);
         
         // Do not ask me what a kQuadrature is or why use 4096. Research if it breaks. Anyways this is meant to account for gravity and gets the position of the arm to do so. 
-        cPidController.setFF(SmartDashboard.getNumber("SA kF", Constants.sArmKF) * Math.cos(motor.getEncoder(SparkMaxRelativeEncoder.Type.kQuadrature, 4096).getPosition() / Constants.sArmGearRatio + Constants.sArmStartingAngle));
-        cPidController.setOutputRange(SmartDashboard.getNumber("Arm Error", Constants.armError), SmartDashboard.getNumber("Arm Error", Constants.armError));
+        cPidController.setFF(Constants.sArmKF * Math.cos(Math.toRadians(armSegment.getPosition() / Constants.sArmGearRatio * 360 + Constants.sArmStartingAngle + 90)));
+        cPidController.setOutputRange(-Constants.armError, Constants.armError);
 
         // This is probablly right 
-        double rotationSetpoint = (positionSetpoint - Constants.sArmStartingAngle) * Constants.sArmGearRatio;
+        double rotationSetpoint = (positionSetpoint - Constants.sArmStartingAngle) / 360 * Constants.sArmGearRatio;
         cPidController.setReference(rotationSetpoint, ControlType.kPosition);
 
-        SmartDashboard.putNumber("SA Setpoint", positionSetpoint);
+        SmartDashboard.putNumber("SA Setpoint", rotationSetpoint);
         
         // This exists if needed to tune the integral term 
         //cPidController.setIZone(Constants.fArmKF);

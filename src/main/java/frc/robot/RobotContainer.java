@@ -21,6 +21,9 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 
+import frc.robot.commands.Autonomous;
+import frc.robot.subsystems.RangeSetter;  
+
 //This class is where the bulk of the robot should be declared.
 public class RobotContainer {
 
@@ -85,8 +88,8 @@ public class RobotContainer {
     new JoystickButton(xController, Constants.bStartOuttake).onTrue(intake.outtakeCommand());
     new JoystickButton(xController, Constants.bStopIntake).onTrue(intake.stopCommand());
 
-    new JoystickButton(oldJoystick, Constants.bJoystickFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
-    new JoystickButton(oldJoystick, Constants.bJoystickFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
+    //new JoystickButton(oldJoystick, Constants.bJoystickFAManualUp).onTrue(firstArmSegment.moveUp(Constants.fArmSpeed));
+    //new JoystickButton(oldJoystick, Constants.bJoystickFAManualDown).onTrue(firstArmSegment.moveDown(Constants.fArmSpeed));
     
     new JoystickButton(oldJoystick, Constants.bJoystickSAManualUp).onTrue(secondArmSegment.moveUp(Constants.sArmSpeed));
     new JoystickButton(oldJoystick, Constants.bJoystickSAManualDown).onTrue(secondArmSegment.moveDown(Constants.sArmSpeed));
@@ -97,7 +100,9 @@ public class RobotContainer {
     new JoystickButton(xController, Constants.bControllerConeRange).onTrue(ranSet.coneRangeCommand());
 
     // // This is probabally the wrong way to call a command. Also this is 100% temporary
-    // new JoystickButton(driverDashboard, Constants.bUpperScoring).whileTrue(new SetFirstArmToPosition(firstArmSegment, 90));
+    new JoystickButton(oldJoystick, 8).onTrue(new SetSecondArmToPosition(secondArmSegment, 135));
+    new JoystickButton(oldJoystick, 7).onTrue(new SetSecondArmToPosition(secondArmSegment, 100));
+    new JoystickButton(oldJoystick, 12).onTrue(secondArmSegment.setEncoderZero());
   }
 
   /**

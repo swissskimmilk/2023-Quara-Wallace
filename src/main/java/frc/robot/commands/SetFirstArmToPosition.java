@@ -36,7 +36,7 @@ public class SetFirstArmToPosition extends CommandBase {
         cPidController.setD(SmartDashboard.getNumber("FA kD", Constants.fArmKD));
         
         // Do not ask me what a kQuadrature is or why use 4096. Research if it breaks. Anyways this is meant to account for gravity and gets the position of the arm to do so. 
-        cPidController.setFF(SmartDashboard.getNumber("FA kF", Constants.fArmKF) * Math.cos(motor.getEncoder(SparkMaxRelativeEncoder.Type.kQuadrature, 4096).getPosition() / Constants.fArmGearRatio + Constants.fArmStartingAngle));
+        cPidController.setFF(SmartDashboard.getNumber("FA kF", Constants.fArmKF) * Math.cos(Math.toRadians(motor.getEncoder(SparkMaxRelativeEncoder.Type.kHallSensor, 42).getPosition() / Constants.fArmGearRatio + Constants.fArmStartingAngle + 90)));
         cPidController.setOutputRange(SmartDashboard.getNumber("Arm Error", Constants.armError), SmartDashboard.getNumber("Arm Error", Constants.armError));
 
         // This is probablly right 
